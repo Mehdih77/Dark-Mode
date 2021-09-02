@@ -36,7 +36,7 @@ function DarkModeContext({ children }) {
     }, [])
 
     return (
-        <DarkTheme.Provider value={[{theme,isDark}, toggleTheme]}>
+        <DarkTheme.Provider value={ [theme,isDark, toggleTheme] }>
             {children}
         </DarkTheme.Provider>
     )
