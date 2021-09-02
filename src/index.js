@@ -2,16 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Second from './Second';
+import DarkModeContext from './context/DarkTheme/DarkModeContext';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Layout from './Layout';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DarkModeContext>
+    <Router>
+      <Switch>
+        <Layout>
+        <Route path='/' exact component={App} />
+        <Route path='/second' exact component={Second} />
+        </Layout>
+      </Switch>
+    </Router>
+      
+    </DarkModeContext>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
